@@ -1,4 +1,4 @@
-# GitLab Insights Mod for Steampipe
+# GitLab Insights Mod
 
 A GitLab dashboarding tool that can be used to view dashboards and reports across all of your GitLab resources.
 
