@@ -73,14 +73,11 @@ query "branch_count" {
       'Branches' as label,
       count(b.*) as value
     from
+      gitlab_my_project p
+    join
       gitlab_branch b
-    where
-      b.project_id in (
-        select
-          id
-        from
-          gitlab_my_project
-      );
+    on
+      p.id = b.project_id;
   EOQ
 }
 
