@@ -45,7 +45,7 @@ query "project_access_request_count" {
         else 'ok'
       end as type
     from
-      gitlab_project p
+      gitlab_my_project p
     join
       gitlab_project_access_request r
     on p.id = r.project_id
@@ -63,7 +63,7 @@ query "project_access_request_table" {
       now()::date - r.requested_at::date as "Age in Days",
       p.web_url
     from
-      gitlab_project p
+      gitlab_my_project p
     join
       gitlab_project_access_request r
     on p.id = r.project_id
