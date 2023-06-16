@@ -177,8 +177,8 @@ query "open_issue_1_year_count" {
 query "open_issue_table" {
   sql = <<-EOQ
     select
-      title as "Issue",
       p.full_path as "Project",
+      title as "Issue",
       now()::date - i.created_at::date as "Age in Days",
       now()::date - i.updated_at::date as "Days Since Last Update",
       author as "Author",
