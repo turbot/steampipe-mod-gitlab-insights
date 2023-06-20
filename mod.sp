@@ -11,4 +11,14 @@ mod "gitlab_insights" {
     description = "Create dashboards and reports for your GitLab resources using Steampipe."
     image       = "/images/mods/turbot/gitlab-insights-social-graphic.png"
   }
+
+  require {
+    steampipe {
+      min_version = "0.20.0"
+    }
+    
+    plugin "gitlab" {
+      min_version = "0.4.1"
+    }
+  }
 }
