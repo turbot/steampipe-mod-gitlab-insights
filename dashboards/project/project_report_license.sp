@@ -18,22 +18,22 @@ dashboard "project_license_report" {
     }
 
     card {
-      query = query.project_mpl_license_count
+      query = query.project_weak_copyleft_license_count
       width = 2
     }
 
     card {
-      query = query.project_gpl_license_count
+      query = query.project_popular_copyleft_license_count
       width = 2
     }
 
     card {
-      query = query.project_apache_license_count
+      query = query.project_permissive_license_count
       width = 2
     }
 
     card {
-      query = query.project_mit_license_count
+      query = query.project_other_license_count
       width = 2
     }
   }
@@ -77,59 +77,53 @@ query "project_without_license_count" {
   EOQ
 }
 
-query "project_mpl_license_count" {
+query "project_weak_copyleft_license_count" {
   sql = <<-EOQ
     select
-      license_key as label, 
+      'Weak Copyleft' as label, 
       count(*) as value
     from 
       gitlab_my_project 
     where 
-      license_key = 'mpl-2.0'
-    group by
-      license_key;
+      license_key in ('lgpl-3.0','lgpl-2.1','mpl-2.0','epl-2.0','osl-3.0','eupl-3.0');
   EOQ
 }
 
-query "project_gpl_license_count" {
+query "project_popular_copyleft_license_count" {
   sql = <<-EOQ
     select
-      'gpl-3.0 / agpl-3.0 / lgpl-3.0' as label, 
+      'Popular Copyleft' as label, 
       count(*) as value
     from 
       gitlab_my_project 
     where 
-      license_key IN ('gpl-3.0', 'agpl-3.0', 'lgpl-3.0')
-    group by
-      license_key;
+      license_key in ('gpl-3.0','gpl-2.0','agpl-3.0','agpl-2.0','cc-by-sa-4.0','apsl');
   EOQ
 }
 
-query "project_apache_license_count" {
+query "project_permissive_license_count" {
   sql = <<-EOQ
     select
-      license_key as label, 
+      'Permissive' as label, 
       count(*) as value
     from 
       gitlab_my_project 
     where 
-      license_key = 'apache-2.0'
-    group by
-      license_key;
+      license_key in ('apache-2.0','mit','bsd-3','bsd-2','bsd-3-clause','bsd2-clause', 'cc-by-4.0', 'wtfpl', 'ms-pl', 'unlicensed');
   EOQ
 }
 
-query "project_mit_license_count" {
+query "project_other_license_count" {
   sql = <<-EOQ
     select
-      license_key as label, 
+      'Other' as label, 
       count(*) as value
     from 
       gitlab_my_project 
-    where 
-      license_key = 'mit'
-    group by
-      license_key;
+    where
+      license_key is not null
+    and
+      license_key not in ('lgpl-3.0','lgpl-2.1','mpl-2.0','epl-2.0','osl-3.0','eupl-3.0','gpl-3.0','gpl-2.0','agpl-3.0','agpl-2.0','cc-by-sa-4.0','apsl','apache-2.0','mit','bsd-3','bsd-2','bsd-3-clause','bsd2-clause', 'cc-by-4.0', 'wtfpl', 'ms-pl', 'unlicensed');
   EOQ
 }
 
@@ -139,6 +133,13 @@ query "project_license_table" {
       full_path as "Project",
       license_key as "License",
       license as "License Name",
+      case
+        when (license_key in ('lgpl-3.0','lgpl-2.1','mpl-2.0','epl-2.0','osl-3.0','eupl-3.0')) then 'weak copyleft'
+        when (license_key in ('gpl-3.0','gpl-2.0','agpl-3.0','agpl-2.0','cc-by-sa-4.0','apsl')) then 'popular copyleft'
+        when (license_key in ('apache-2.0','mit','bsd-3','bsd-2','bsd-3-clause','bsd2-clause', 'cc-by-4.0', 'wtfpl', 'ms-pl', 'unlicensed')) then 'permissive'
+        when (license_key is null) then null
+        else 'other'
+      end as "License Type",
       web_url,
       license_url
     from
