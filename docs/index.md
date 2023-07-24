@@ -6,7 +6,12 @@ repository: "https://github.com/turbot/steampipe-mod-gitlab-insights"
 
 Create dashboards and reports for your GitLab resources using Steampipe.
 
-<!-- TODO: Insert screenshots -->
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/open_issue_age_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/project_visibility_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/project_failed_pipeline_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/branch_activity_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/branch_protection_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/open_mr_age_report.png" width="50%" type="thumbnail"/>
 
 ## Overview
 
