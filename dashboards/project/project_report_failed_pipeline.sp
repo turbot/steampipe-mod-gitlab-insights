@@ -11,6 +11,11 @@ dashboard "project_failed_pipeline_report" {
       query = query.project_count
       width = 2
     }
+
+    card {
+      query = query.project_failed_pipeline_count
+      width = 2
+    }
   }
 
   container {
