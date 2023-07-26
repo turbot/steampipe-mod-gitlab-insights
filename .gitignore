@@ -1,3 +1,5 @@
 # Steampipe variable files
 *.spvars
 *.auto.spvars
+
+.DS_Store
