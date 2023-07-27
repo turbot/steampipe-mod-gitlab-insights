@@ -2,6 +2,8 @@
 
 A GitLab dashboarding tool that can be used to view dashboards and reports across all of your GitLab resources.
 
+![image](https://hub.steampipe.io/images/mods/turbot/gitlab-insights-social-graphic.png)
+
 ## Overview
 
 Dashboards/Reports can help answer questions like:

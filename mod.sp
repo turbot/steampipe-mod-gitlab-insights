@@ -18,7 +18,7 @@ mod "gitlab_insights" {
     }
     
     plugin "gitlab" {
-      min_version = "0.4.1"
+      min_version = "0.4.2"
     }
   }
 }
