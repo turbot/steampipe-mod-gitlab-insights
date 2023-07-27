@@ -12,13 +12,9 @@ mod "gitlab_insights" {
     image       = "/images/mods/turbot/gitlab-insights-social-graphic.png"
   }
 
-  require {
-    steampipe {
-      min_version = "0.20.0"
-    }
-    
+  require {   
     plugin "gitlab" {
-      min_version = "0.4.2"
+      version = "0.4.2"
     }
   }
 }
