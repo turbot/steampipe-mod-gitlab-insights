@@ -76,10 +76,7 @@ query "open_epic_count" {
       'Open Epics' as label
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened';
   EOQ
@@ -92,14 +89,10 @@ query "open_epic_24_hours_count" {
       count(e.*) as value
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened'
-    and 
-      e.created_at > now() - '1 days'::interval;
+      and e.created_at > now() - '1 days'::interval;
   EOQ
 }
 
@@ -110,14 +103,10 @@ query "open_epic_30_days_count" {
       count(e.*) as value
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened'
-    and 
-      e.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
+      and e.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
   EOQ
 }
 
@@ -128,14 +117,10 @@ query "open_epic_30_90_days_count" {
       count(e.*) as value
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened'
-    and 
-      e.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
+      and e.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
   EOQ
 }
 
@@ -146,14 +131,10 @@ query "open_epic_90_365_days_count" {
       count(e.*) as value
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened'
-    and 
-      e.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
+      and e.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
   EOQ
 }
 
@@ -164,14 +145,10 @@ query "open_epic_1_year_count" {
       count(e.*) as value
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened'
-    and 
-      e.created_at <= now() - '1 year' :: interval;
+      and e.created_at <= now() - '1 year' :: interval;
   EOQ
 }
 
@@ -187,13 +164,10 @@ query "open_epic_table" {
       g.web_url as group_url
     from
       gitlab_group g
-    join 
-      gitlab_epic e
-    on 
-      e.group_id = g.id
+      join gitlab_epic e on e.group_id = g.id
     where
       e.state = 'opened'
     order by
-      "Age in Days" desc
+      "Age in Days" desc;
   EOQ
 }

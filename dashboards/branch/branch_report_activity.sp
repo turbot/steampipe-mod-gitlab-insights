@@ -1,7 +1,7 @@
 dashboard "branch_activity_report" {
   title = "GitLab Branch Activity Report"
   documentation = file("./dashboards/branch/docs/branch_report_activity.md")
-  
+
   tags = merge(local.branch_common_tags, {
     type = "Report"
   })
@@ -74,10 +74,7 @@ query "branch_count" {
       count(b.*) as value
     from
       gitlab_my_project p
-    join
-      gitlab_branch b
-    on
-      p.id = b.project_id;
+      join gitlab_branch b on p.id = b.project_id;
   EOQ
 }
 
@@ -95,8 +92,7 @@ query "branch_24_hours_count" {
         from
           gitlab_my_project
       )
-    and 
-      b.commit_date > now() - '1 days'::interval;
+      and b.commit_date > now() - '1 days'::interval;
   EOQ
 }
 
@@ -114,8 +110,7 @@ query "branch_30_days_count" {
         from
           gitlab_my_project
       )
-    and 
-      b.commit_date between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
+      and b.commit_date between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
   EOQ
 }
 
@@ -133,8 +128,7 @@ query "branch_30_90_days_count" {
         from
           gitlab_my_project
       )
-    and 
-      b.commit_date between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
+      and b.commit_date between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
   EOQ
 }
 
@@ -152,8 +146,7 @@ query "branch_90_365_days_count" {
         from
           gitlab_my_project
       )
-    and 
-      b.commit_date between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
+      and b.commit_date between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
   EOQ
 }
 
@@ -171,8 +164,7 @@ query "branch_1_year_count" {
         from
           gitlab_my_project
       )
-    and 
-      b.commit_date <= now() - '1 year' :: interval;
+      and b.commit_date <= now() - '1 year' :: interval;
   EOQ
 }
 
@@ -190,9 +182,6 @@ query "branch_table" {
       p.web_url as project_url
     from
       gitlab_my_project p
-    join
-      gitlab_branch b
-    on
-      p.id = b.project_id
+      join gitlab_branch b on p.id = b.project_id;
   EOQ
 }

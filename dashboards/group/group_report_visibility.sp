@@ -9,22 +9,22 @@ dashboard "group_visibility_report" {
   container {
     card {
       query = query.group_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.group_public_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.group_private_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.group_internal_count
-      width = 2
+      width = 3
     }
   }
 

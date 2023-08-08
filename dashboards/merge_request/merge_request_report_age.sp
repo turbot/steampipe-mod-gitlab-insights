@@ -75,10 +75,7 @@ query "open_merge_request_count" {
       'Open Merge Requests' as label
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened';
   EOQ
@@ -91,14 +88,10 @@ query "open_merge_request_24_hours_count" {
       count(m.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened'
-    and 
-      m.created_at > now() - '1 days'::interval;
+      and m.created_at > now() - '1 days'::interval;
   EOQ
 }
 
@@ -109,14 +102,10 @@ query "open_merge_request_30_days_count" {
       count(m.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened'
-    and 
-      m.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
+      and m.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
   EOQ
 }
 
@@ -127,14 +116,10 @@ query "open_merge_request_30_90_days_count" {
       count(m.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened'
-    and 
-      m.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
+      and m.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
   EOQ
 }
 
@@ -145,14 +130,10 @@ query "open_merge_request_90_365_days_count" {
       count(m.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened'
-    and 
-      m.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
+      and m.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
   EOQ
 }
 
@@ -163,14 +144,10 @@ query "open_merge_request_1_year_count" {
       count(m.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened'
-    and 
-      m.created_at <= now() - '1 year' :: interval;
+      and m.created_at <= now() - '1 year' :: interval;
   EOQ
 }
 
@@ -186,13 +163,10 @@ query "open_merge_request_table" {
       p.web_url as project_url
     from
       gitlab_my_project p
-    join 
-      gitlab_merge_request m
-    on 
-      m.project_id = p.id
+      join gitlab_merge_request m on m.project_id = p.id
     where
       m.state = 'opened'
     order by
-      "Age in Days" desc
+      "Age in Days" desc;
   EOQ
 }

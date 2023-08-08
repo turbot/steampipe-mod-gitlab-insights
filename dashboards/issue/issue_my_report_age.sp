@@ -89,8 +89,7 @@ query "my_open_issue_24_hours_count" {
       gitlab_my_issue i
     where
       i.state = 'opened'
-    and 
-      i.created_at > now() - '1 days'::interval;
+      and i.created_at > now() - '1 days'::interval;
   EOQ
 }
 
@@ -103,8 +102,7 @@ query "my_open_issue_30_days_count" {
       gitlab_my_issue i
     where
       i.state = 'opened'
-    and 
-      i.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
+      and i.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
   EOQ
 }
 
@@ -117,8 +115,7 @@ query "my_open_issue_30_90_days_count" {
       gitlab_my_issue i
     where
       i.state = 'opened'
-    and 
-      i.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
+      and i.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
   EOQ
 }
 
@@ -131,8 +128,7 @@ query "my_open_issue_90_365_days_count" {
       gitlab_my_issue i
     where
       i.state = 'opened'
-    and 
-      i.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
+      and i.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
   EOQ
 }
 
@@ -145,8 +141,7 @@ query "my_open_issue_1_year_count" {
       gitlab_my_issue i
     where
       i.state = 'opened'
-    and 
-      i.created_at <= now() - '1 year' :: interval;
+      and i.created_at <= now() - '1 year' :: interval;
   EOQ
 }
 
@@ -162,13 +157,10 @@ query "my_open_issue_table" {
       p.web_url as project_url
     from
       gitlab_my_issue i
-    inner join 
-      gitlab_project p
-    on 
-      i.project_id = p.id
+      inner join gitlab_project p on i.project_id = p.id
     where
       i.state = 'opened'
     order by
-      "Age in Days" desc
+      "Age in Days" desc;
   EOQ
 }

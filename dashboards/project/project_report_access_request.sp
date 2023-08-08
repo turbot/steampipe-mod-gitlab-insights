@@ -10,12 +10,12 @@ dashboard "project_access_request_report" {
   container {
     card {
       query = query.project_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.project_access_request_count
-      width = 2
+      width = 3
     }
   }
 
@@ -46,9 +46,7 @@ query "project_access_request_count" {
       end as type
     from
       gitlab_my_project p
-    join
-      gitlab_project_access_request r
-    on p.id = r.project_id
+      join gitlab_project_access_request r on p.id = r.project_id
     where
       r.state = 'active';
   EOQ
@@ -64,9 +62,7 @@ query "project_access_request_table" {
       p.web_url
     from
       gitlab_my_project p
-    join
-      gitlab_project_access_request r
-    on p.id = r.project_id
+      join gitlab_project_access_request r on p.id = r.project_id
     where
       r.state = 'active'
     order by

@@ -73,18 +73,19 @@ query "project_without_license_count" {
       end as type
     from
       gitlab_my_project
-    where license_key is null or license_key = '';
+    where
+      license_key is null or license_key = '';
   EOQ
 }
 
 query "project_weak_copyleft_license_count" {
   sql = <<-EOQ
     select
-      'Weak Copyleft' as label, 
+      'Weak Copyleft' as label,
       count(*) as value
-    from 
-      gitlab_my_project 
-    where 
+    from
+      gitlab_my_project
+    where
       license_key in ('lgpl-3.0','lgpl-2.1','mpl-2.0','epl-2.0','osl-3.0','eupl-3.0');
   EOQ
 }
@@ -92,11 +93,11 @@ query "project_weak_copyleft_license_count" {
 query "project_popular_copyleft_license_count" {
   sql = <<-EOQ
     select
-      'Popular Copyleft' as label, 
+      'Popular Copyleft' as label,
       count(*) as value
-    from 
-      gitlab_my_project 
-    where 
+    from
+      gitlab_my_project
+    where
       license_key in ('gpl-3.0','gpl-2.0','agpl-3.0','agpl-2.0','cc-by-sa-4.0','apsl');
   EOQ
 }
@@ -104,11 +105,11 @@ query "project_popular_copyleft_license_count" {
 query "project_permissive_license_count" {
   sql = <<-EOQ
     select
-      'Permissive' as label, 
+      'Permissive' as label,
       count(*) as value
-    from 
-      gitlab_my_project 
-    where 
+    from
+      gitlab_my_project
+    where
       license_key in ('apache-2.0','mit','bsd-3','bsd-2','bsd-3-clause','bsd2-clause', 'cc-by-4.0', 'wtfpl', 'ms-pl', 'unlicensed');
   EOQ
 }
@@ -116,14 +117,13 @@ query "project_permissive_license_count" {
 query "project_other_license_count" {
   sql = <<-EOQ
     select
-      'Other' as label, 
+      'Other' as label,
       count(*) as value
-    from 
-      gitlab_my_project 
+    from
+      gitlab_my_project
     where
       license_key is not null
-    and
-      license_key not in ('lgpl-3.0','lgpl-2.1','mpl-2.0','epl-2.0','osl-3.0','eupl-3.0','gpl-3.0','gpl-2.0','agpl-3.0','agpl-2.0','cc-by-sa-4.0','apsl','apache-2.0','mit','bsd-3','bsd-2','bsd-3-clause','bsd2-clause', 'cc-by-4.0', 'wtfpl', 'ms-pl', 'unlicensed');
+      and license_key not in ('lgpl-3.0','lgpl-2.1','mpl-2.0','epl-2.0','osl-3.0','eupl-3.0','gpl-3.0','gpl-2.0','agpl-3.0','agpl-2.0','cc-by-sa-4.0','apsl','apache-2.0','mit','bsd-3','bsd-2','bsd-3-clause','bsd2-clause', 'cc-by-4.0', 'wtfpl', 'ms-pl', 'unlicensed');
   EOQ
 }
 

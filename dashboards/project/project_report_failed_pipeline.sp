@@ -9,12 +9,12 @@ dashboard "project_failed_pipeline_report" {
   container {
     card {
       query = query.project_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.project_failed_pipeline_count
-      width = 2
+      width = 3
     }
   }
 
@@ -53,10 +53,7 @@ query "project_failed_pipeline_count" {
       end as type
     from
       gitlab_my_project p
-    join
-      gitlab_project_pipeline l
-    on
-      p.id = l.project_id
+      join gitlab_project_pipeline l on p.id = l.project_id
     where
       l.status = 'failed';
   EOQ
@@ -73,10 +70,7 @@ query "project_failed_pipeline_table" {
       l.web_url as pipeline_url
     from
       gitlab_my_project p
-    join
-      gitlab_project_pipeline l
-    on
-      p.id = l.project_id
+      join gitlab_project_pipeline l on p.id = l.project_id
     where
       l.status = 'failed';
   EOQ

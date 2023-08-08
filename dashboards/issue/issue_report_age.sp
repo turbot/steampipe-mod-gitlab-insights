@@ -75,10 +75,7 @@ query "open_issue_count" {
       'Open Issues' as label
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened';
   EOQ
@@ -91,14 +88,10 @@ query "open_issue_24_hours_count" {
       count(i.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened'
-    and 
-      i.created_at > now() - '1 days'::interval;
+      and i.created_at > now() - '1 days'::interval;
   EOQ
 }
 
@@ -109,14 +102,10 @@ query "open_issue_30_days_count" {
       count(i.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened'
-    and 
-      i.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
+      and i.created_at between symmetric now() - '1 days' :: interval and now() - '30 days' :: interval;
   EOQ
 }
 
@@ -127,14 +116,10 @@ query "open_issue_30_90_days_count" {
       count(i.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened'
-    and 
-      i.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
+      and i.created_at between symmetric now() - '30 days' :: interval and now() - '90 days' :: interval;
   EOQ
 }
 
@@ -145,14 +130,10 @@ query "open_issue_90_365_days_count" {
       count(i.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened'
-    and 
-      i.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
+      and i.created_at  between symmetric now() - '90 days' :: interval and now() - '365 days' :: interval;
   EOQ
 }
 
@@ -163,14 +144,10 @@ query "open_issue_1_year_count" {
       count(i.*) as value
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened'
-    and 
-      i.created_at <= now() - '1 year' :: interval;
+      and i.created_at <= now() - '1 year' :: interval;
   EOQ
 }
 
@@ -186,13 +163,10 @@ query "open_issue_table" {
       p.web_url as project_url
     from
       gitlab_my_project p
-    join 
-      gitlab_issue i
-    on 
-      i.project_id = p.id
+      join gitlab_issue i on i.project_id = p.id
     where
       i.state = 'opened'
     order by
-      "Age in Days" desc
+      "Age in Days" desc;
   EOQ
 }

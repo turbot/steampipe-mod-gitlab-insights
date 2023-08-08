@@ -75,16 +75,13 @@ query "group_expiring_member_24_hours_count" {
       count(m.*) as value
     from
       gitlab_group g
-    join
-      gitlab_group_member m
-    on
-      g.id = m.group_id
+      join gitlab_group_member m on g.id = m.group_id
     where
       m.state = 'active'
-    and (
-      m.expires_at is not null and
-      m.expires_at < now() + '1 days'::interval
-    );
+      and (
+        m.expires_at is not null and
+        m.expires_at < now() + '1 days'::interval
+      );
   EOQ
 }
 
@@ -95,16 +92,13 @@ query "group_expiring_member_30_days_count" {
       count(m.*) as value
     from
       gitlab_group g
-    join
-      gitlab_group_member m
-    on
-      g.id = m.group_id
+      join gitlab_group_member m on g.id = m.group_id
     where
       m.state = 'active'
-    and (
-      m.expires_at is not null and
-      m.expires_at between symmetric now() + '1 days'::interval and now() + '30 days' :: interval
-    );
+      and (
+        m.expires_at is not null and
+        m.expires_at between symmetric now() + '1 days'::interval and now() + '30 days' :: interval
+      );
   EOQ
 }
 
@@ -115,16 +109,13 @@ query "group_expiring_member_30_90_days_count" {
       count(m.*) as value
     from
       gitlab_group g
-    join
-      gitlab_group_member m
-    on
-      g.id = m.group_id
+      join gitlab_group_member m on g.id = m.group_id
     where
       m.state = 'active'
-    and (
-      m.expires_at is not null and
-      m.expires_at between symmetric now() + '30 days'::interval and now() + '90 days' :: interval
-    );
+      and (
+        m.expires_at is not null and
+        m.expires_at between symmetric now() + '30 days'::interval and now() + '90 days' :: interval
+      );
   EOQ
 }
 
@@ -135,16 +126,13 @@ query "group_expiring_member_90_365_days_count" {
       count(m.*) as value
     from
       gitlab_group g
-    join
-      gitlab_group_member m
-    on
-      g.id = m.group_id
+      join gitlab_group_member m on g.id = m.group_id
     where
       m.state = 'active'
-    and (
-      m.expires_at is not null and
-      m.expires_at between symmetric now() + '90 days'::interval and now() + '365 days' :: interval
-    );
+      and (
+        m.expires_at is not null and
+        m.expires_at between symmetric now() + '90 days'::interval and now() + '365 days' :: interval
+      );
   EOQ
 }
 
@@ -155,16 +143,13 @@ query "group_expiring_member_1_year_count" {
       count(m.*) as value
     from
       gitlab_group g
-    join
-      gitlab_group_member m
-    on
-      g.id = m.group_id
+      join gitlab_group_member m on g.id = m.group_id
     where
       m.state = 'active'
-    and (
-      m.expires_at is not null and
-      m.expires_at >= now() + '1 year' :: interval
-    );
+      and (
+        m.expires_at is not null and
+        m.expires_at >= now() + '1 year' :: interval
+      );
   EOQ
 }
 
@@ -179,14 +164,10 @@ query "group_expiring_member_table" {
       m.web_url as member_url
     from
       gitlab_group g
-    join
-      gitlab_group_member m
-    on
-      g.id = m.group_id
+      join gitlab_group_member m on g.id = m.group_id
     where
       m.state = 'active'
-    and
-      m.expires_at is not null
+      and m.expires_at is not null
     order by
       "Expires in Days";
   EOQ

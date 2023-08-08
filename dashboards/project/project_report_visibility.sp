@@ -9,22 +9,22 @@ dashboard "project_visibility_report" {
   container {
     card {
       query = query.project_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.project_public_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.project_private_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.project_internal_count
-      width = 2
+      width = 3
     }
   }
 

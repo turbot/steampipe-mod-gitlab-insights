@@ -1,7 +1,7 @@
 dashboard "group_2fa_report" {
   title = "GitLab Group 2FA Report"
   documentation = file("./dashboards/group/docs/group_report_2fa.md")
-  
+
   tags = merge(local.group_common_tags, {
     type     = "Report"
     category = "Security"
@@ -10,17 +10,17 @@ dashboard "group_2fa_report" {
   container {
     card {
       query = query.group_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.group_2fa_enabled_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.group_2fa_disabled_count
-      width = 2
+      width = 3
     }
   }
 
@@ -57,7 +57,7 @@ query "group_2fa_disabled_count" {
     select
       'Disabled' as label,
       count(*) as value,
-      case 
+      case
         when count(*) > 0 then 'alert'
         else 'ok'
       end as type

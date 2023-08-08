@@ -10,12 +10,12 @@ dashboard "group_access_request_report" {
   container {
     card {
       query = query.group_count
-      width = 2
+      width = 3
     }
 
     card {
       query = query.group_access_request_count
-      width = 2
+      width = 3
     }
   }
 
@@ -46,9 +46,7 @@ query "group_access_request_count" {
       end as type
     from
       gitlab_group g
-    join
-      gitlab_group_access_request r
-    on g.id = r.group_id
+      join gitlab_group_access_request r on g.id = r.group_id
     where
       r.state = 'active';
   EOQ
@@ -64,9 +62,7 @@ query "group_access_request_table" {
       g.web_url
     from
       gitlab_group g
-    join
-      gitlab_group_access_request r
-    on g.id = r.group_id
+      join gitlab_group_access_request r on g.id = r.group_id
     where
       r.state = 'active';
   EOQ

@@ -123,6 +123,7 @@ query "project_star_table" {
     from
       gitlab_my_project
     order by
-      star_count desc, full_path
+      star_count desc,
+      full_path;
   EOQ
 }
