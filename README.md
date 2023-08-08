@@ -55,12 +55,6 @@ This mod uses the credentials configured in the [Steampipe GitLab plugin](https:
 
 No extra configuration is required.
 
-### FAQ
-
-Q1: I have multiple GitLab configurations but Steampipe only seems to show results from one of these, how do I show all/more?
-
-A1: As the tables in this mod are unqualified, they will revert to utilising the first connection for the plugin that is loaded - you can utilise a [connection aggregator](https://steampipe.io/docs/managing/connections#using-aggregators) in combination with providing the [search path](https://steampipe.io/docs/guides/search-path) argument to specify which connection(s) you wish to include.
-
 ## Contributing
 
 If you have an idea for additional dashboards or just want to help maintain and extend this mod ([or others](https://github.com/topics/steampipe-mod)) we would love you to join the community and start contributing.
