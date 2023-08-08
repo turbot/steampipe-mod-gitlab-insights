@@ -68,6 +68,8 @@ query "project_access_request_table" {
       gitlab_project_access_request r
     on p.id = r.project_id
     where
-      r.state = 'active';
+      r.state = 'active'
+    order by
+      "Age in Days" desc;
   EOQ
 }
