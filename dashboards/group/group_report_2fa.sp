@@ -72,7 +72,7 @@ query "group_2fa_table" {
   sql = <<-EOQ
     select
       full_path as "Group",
-      require_two_factor_authentication as "2fa Required",
+      require_two_factor_authentication as "2FA Required",
       two_factor_grace_period as "Grace Period (in hours)",
       web_url
     from
