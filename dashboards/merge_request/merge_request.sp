@@ -1,6 +1,5 @@
 category "merge_request" {
   title = "Merge Request"
-  icon  = "flowsheet"
 }
 
 locals {

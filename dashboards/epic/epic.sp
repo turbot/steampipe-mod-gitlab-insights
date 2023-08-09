@@ -1,6 +1,5 @@
 category "epic" {
   title = "Epic"
-  icon  = "description"
 }
 
 locals {

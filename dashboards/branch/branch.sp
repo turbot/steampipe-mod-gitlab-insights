@@ -1,6 +1,5 @@
 category "branch" {
   title = "Branch"
-  icon  = "integration_instructions"
 }
 
 locals {

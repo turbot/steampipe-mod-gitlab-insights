@@ -1,6 +1,5 @@
 category "project" {
   title = "Project"
-  icon  = "rebase_edit"
 }
 
 locals {

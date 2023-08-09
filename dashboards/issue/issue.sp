@@ -1,6 +1,5 @@
 category "issue" {
   title = "Issue"
-  icon  = "description"
 }
 
 locals {

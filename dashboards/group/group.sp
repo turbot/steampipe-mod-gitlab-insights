@@ -1,6 +1,5 @@
 category "group" {
   title = "Group"
-  icon  = "diversity_2"
 }
 
 locals {
