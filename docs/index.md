@@ -18,9 +18,9 @@ Create dashboards and reports for your GitLab resources using Steampipe.
 Dashboards/Reports can help answer questions like:
 
 - How many projects do I have access to?
-- How many issues do I have over N days old across all my projects?
+- How old are my issues across all my projects?
 - When was a project last contributed to?
-- When was user XYZ last active?
+- Which of my branches are (un)protected?
 
 ## References
 
@@ -86,7 +86,7 @@ A1: As the tables in this mod are unqualified, they will revert to utilising the
 
 If you have an idea for additional dashboards or just want to help maintain and extend this mod ([or others](https://github.com/topics/steampipe-mod)) we would love you to join the community and start contributing.
 
-- **[Join our Slack community →](https://steampipe.io/community/join)** and hang out with other Mod developers.
+- **[Join our Slack community →](https://turbot.com/community/join)** and hang out with other Mod developers.
 
 Please see the [contribution guidelines](https://github.com/turbot/steampipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/steampipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/steampipe-mod-gitlab-insights/blob/main/LICENSE).
 
