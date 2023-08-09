@@ -1,0 +1,21 @@
+## v0.1 [2023-08-09]
+
+_What's new?_
+
+- New dashboards added:
+  - [Branch Activity Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.branch_activity_report)
+  - [Branch Protection Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.branch_protection_report)
+  - [Group 2FA Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.group_2fa_report)
+  - [Group Access Request Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.group_access_request_report)
+  - [Group Expiring Members Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.group_expiring_member_report)
+  - [Group Visibility Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.group_visibility_report)
+  - [My Open Issues Age Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.issue_my_open_age_report)
+  - [Open Epics Age Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.epic_open_age_report)
+  - [Open Issues Age Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.issue_open_age_report)
+  - [Open Merge Request Age Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.merge_request_open_age_report)
+  - [Project Access Request Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.project_access_request_report)
+  - [Project Expiring Members Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.project_expiring_member_report)
+  - [Project Failed Pipelines Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.project_failed_pipeline_report)
+  - [Project License Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.project_license_report)
+  - [Project Stars Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.project_star_report)
+  - [Project Visibility Report](https://hub.steampipe.io/mods/turbot/gitlab_insights/dashboards/dashboard.project_visibility_report)
