@@ -13,7 +13,7 @@ mod "gitlab_insights" {
   }
 
   require {   
-    plugin "gitlab" {
+    plugin "theapsgroup/gitlab" {
       version = "0.4.2"
     }
   }
