@@ -12,9 +12,9 @@ mod "gitlab_insights" {
     image       = "/images/mods/turbot/gitlab-insights-social-graphic.png"
   }
 
-  require {   
+  require {
     plugin "theapsgroup/gitlab" {
-      version = "0.4.2"
+      min_version = "0.4.2"
     }
   }
 }
