@@ -45,7 +45,7 @@ Finally, install the mod:
 mkdir dashboards
 cd dashboards
 powerpipe mod init
-powerpipe mod install github.com/turbot/powerpipe-mod-gitlab-insights
+powerpipe mod install github.com/turbot/steampipe-mod-gitlab-insights
 ```
 
 ### Browsing Dashboards
