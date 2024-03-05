@@ -1,7 +1,3 @@
----
-repository: "https://github.com/turbot/steampipe-mod-gitlab-insights"
----
-
 # GitLab Insights Mod
 
 Create dashboards and reports for your GitLab resources using Steampipe.
