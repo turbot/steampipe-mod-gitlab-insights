@@ -12,4 +12,8 @@
 *.spvars
 *.auto.spvars
 
+# Powerpipe variable files
+*.ppvars
+*.auto.ppvars
+
 .DS_Store
