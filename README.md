@@ -5,7 +5,7 @@
 
 A GitLab dashboarding tool that can be used to view dashboards and reports across all of your GitLab resources.
 
-![image](https://hub-powerpipe-io-git-development-turbot.vercel.app/images/mods/turbot/gitlab-insights-social-graphic.png)
+![image](https://hub.powerpipe.io/images/mods/turbot/gitlab-insights-social-graphic.png)
 
 ## Overview
 
@@ -18,7 +18,7 @@ Dashboards/Reports can help answer questions like:
 
 ## Documentation
 
-- **[Dashboards →](https://hub-powerpipe-io-git-development-turbot.vercel.app/mods/turbot/gitlab_insights/dashboards)**
+- **[Dashboards →](https://hub.powerpipe.io/mods/turbot/gitlab_insights/dashboards)**
 
 ## Getting Started
 
@@ -36,8 +36,6 @@ This mod also requires [Steampipe](https://steampipe.io) with the [GitLab plugin
 brew install turbot/tap/steampipe
 steampipe plugin install theapsgroup/gitlab
 ```
-
-This mod uses the credentials configured in the [Steampipe GitLab plugin](https://hub.steampipe.io/plugins/theapsgroup/gitlab#configuration).
 
 Finally, install the mod:
 

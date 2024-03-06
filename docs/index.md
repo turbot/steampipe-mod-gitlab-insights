@@ -1,12 +1,12 @@
 # GitLab Insights Mod
 
-Create dashboards and reports for your GitLab resources using Steampipe.
+Create dashboards and reports for your GitLab resources using Powerpipe.
 
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/add-new-checks/docs/images/open_issue_age_report.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/add-new-checks/docs/images/project_failed_pipeline_report.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/add-new-checks/docs/images/branch_activity_report.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/add-new-checks/docs/images/branch_protection_report.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/add-new-checks/docs/images/open_mr_age_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/open_issue_age_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/project_failed_pipeline_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/branch_activity_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/branch_protection_report.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-gitlab-insights/main/docs/images/open_mr_age_report.png" width="50%" type="thumbnail"/>
 
 ## Overview
 
@@ -19,7 +19,7 @@ Dashboards/Reports can help answer questions like:
 
 ## Documentation
 
-- **[Dashboards →](https://hub-powerpipe-io-git-development-turbot.vercel.app/mods/turbot/gitlab_insights/dashboards)**
+- **[Dashboards →](https://hub.powerpipe.io/mods/turbot/gitlab_insights/dashboards)**
 
 ## Getting Started
 
@@ -37,8 +37,6 @@ This mod also requires [Steampipe](https://steampipe.io) with the [GitLab plugin
 brew install turbot/tap/steampipe
 steampipe plugin install theapsgroup/gitlab
 ```
-
-This mod uses the credentials configured in the [Steampipe GitLab plugin](https://hub.steampipe.io/plugins/theapsgroup/gitlab#configuration).
 
 Finally, install the mod:
 
