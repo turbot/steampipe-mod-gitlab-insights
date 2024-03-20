@@ -1,3 +1,9 @@
+## v0.4 [2024-03-20]
+
+_Bug fixes_
+
+- Fixed the `project_license_table`, `project_other_license_count` and `project_weak_copyleft_license_count` queries to use the latest version of EUP (European Union Public License 1.2). ([#13](https://github.com/turbot/steampipe-mod-gitlab-insights/pull/13))
+
 ## v0.3 [2024-03-06]
 
 _Powerpipe_
